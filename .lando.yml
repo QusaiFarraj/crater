@@ -1,0 +1,20 @@
+name: craterapp
+recipe: laravel
+config:
+  webroot: public
+  php: '7.4'
+proxy:
+  mailhog:
+    - mail.craterapp.lndo.site
+services:
+  mailhog:
+    type: mailhog
+    portforward: true
+    hogfrom:
+      - appserver
+  node:
+    type: node
+tooling:
+  yarn:
+    service: node
+
